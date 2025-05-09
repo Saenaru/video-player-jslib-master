@@ -10,23 +10,35 @@
   height: 100%;
 }
 
-.js-play-button, .time-display, .js-progress {
-  position: absolute;
-  left: 20px;
-  z-index: 10;
-}
 .js-play-button {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 10;
-  background: #888;
-  color: #000;
-  border-width: 1px;
-  border-style: hidden;
-  border-radius: 4px;
-  padding: 8px 16px;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-display, .js-progress {
+  position: absolute;
+  left: 20px;
+  z-index: 10;
+}
+.js-play-button::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid #fff;
 }
 .time-display  { top: 60px; }
 .js-progress   { bottom: 40px; width: 80%; }
