@@ -3,24 +3,23 @@
 <head>
   <title>Пример подключения плеера</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="player" style="width: 800px; height: 600px;">
-
-    <div class="js-video-container" style="width: 100%; height: 100%"></div>
+  <div id="player">
+    <div class="js-video-container"></div>
 
     <div>
-      <button class="js-play-button">Play!</button>
-
+      <button class="js-play-button">▶</button>
     </div>
-    <div style="color: white;">
+    <div class="time-display">
       <span class="js-current-time"></span>
       —
       <span class="js-duration"></span>
     </div>
 
-    <div class="js-progress" style="background-color: grey;">
-      <div class="js-progress-slider" style="background-color: red;">Прогресс</div>
+    <div class="js-progress">
+      <div class="js-progress-slider">Прогресс</div>
     </div>
   </div>
 
@@ -31,6 +30,5 @@
   <script type="text/javascript">
     createPlayer({elementId: 'player'});
   </script>
-
 </body>
 </html>
