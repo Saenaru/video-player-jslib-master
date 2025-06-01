@@ -1,6 +1,6 @@
 # Видеоплеер с элементами управления
 
-![Превью плеера](https://saenaru.github.io/video-player-jslib-master/)
+[Воспроизведение плеера](https://saenaru.github.io/video-player-jslib-master/)
 
 Простой, но функциональный видеоплеер с кастомными элементами управления, созданный с использованием JavaScript и CSS.
 
