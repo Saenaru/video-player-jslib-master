@@ -217,4 +217,20 @@ function createPlayer({
       throttledUpdateVideoProgress(e.pageX);
     });
   })();
+
+  (function activateFullscreenButton() {
+  const $fullscreenButton = $playerContainer.find('.js-fullscreen-button');
+  
+  $fullscreenButton.click(() => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      playerContainer.requestFullscreen();
+    }
+  });
+
+  document.addEventListener('fullscreenchange', () => {
+    $fullscreenButton.toggleClass('fullscreen', !!document.fullscreenElement);
+  });
+})();
 }

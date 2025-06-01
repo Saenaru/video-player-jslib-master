@@ -10,30 +10,36 @@
   height: 100%;
 }
 
-.js-play-button,
-.js-pause-button {
+.player-controls {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
-  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.js-play-button,
+.js-pause-button,
+.js-volume-button,
+.js-mute-button,
+.js-fullscreen-button {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
   background: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 20px;
   transition: all 0.2s ease;
-}
-
-.js-play-button:hover,
-.js-pause-button:hover {
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .js-play-button::before {
@@ -48,33 +54,6 @@
   content: '\f04c';
 }
 
-
-.js-volume-button,
-.js-mute-button {
-  position: absolute;
-  bottom: 8px;
-  left: 60px;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 20px;
-  transition: all 0.2s ease;
-}
-
-.js-volume-button:hover,
-.js-mute-button:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-
 .js-volume-button::before {
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
@@ -87,33 +66,27 @@
   content: '\f026';
 }
 
-.js-play-button[hidden],
-.js-pause-button[hidden],
-.js-volume-button[hidden],
-.js-mute-button[hidden] {
-  display: none !important;
+.js-fullscreen-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f065';
 }
 
-.time-display,
-.js-progress {
-  position: absolute;
-  left: 16px;
-  z-index: 10;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+.js-fullscreen-button.fullscreen::before {
+  content: '\f066';
 }
 
 .time-display {
-  top: 16px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
   background: rgba(0, 0, 0, 0.5);
   padding: 4px 8px;
   border-radius: 3px;
 }
 
 .js-progress {
-  bottom: 60px;
-  width: calc(100% - 32px);
+  flex: 1;
   height: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
@@ -126,4 +99,19 @@
   border-radius: 2px;
   width: 0%;
   transition: width 0.1s linear;
+}
+
+.js-play-button:hover,
+.js-pause-button:hover,
+.js-volume-button:hover,
+.js-mute-button:hover,
+.js-fullscreen-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.js-play-button[hidden],
+.js-pause-button[hidden],
+.js-volume-button[hidden],
+.js-mute-button[hidden] {
+  display: none !important;
 }
