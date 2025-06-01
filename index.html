@@ -6,25 +6,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="player">
-    <div class="js-video-container"></div>
+  <div class="player-container">
+    <div class="player" id="player">
+      <div class="player__video-container js-video-container"></div>
+      <div class="player__controls">
+        <button type="button"
+          class="player__button player__button--play js-play-button"
+          aria-label="Воспроизвести"
+          title="Play"></button>
+        <button type="button"
+          class="player__button player__button--pause js-pause-button"
+          aria-label="Пауза"
+          title="Pause"
+          hidden></button>
+      </div>
+      <div>
+        <button type="button" class="js-volume-button" aria-label="Звук включен" title="Mute"></button>
+        <button type="button" class="js-mute-button" aria-label="Звук выключен" title="Unmute" hidden></button>
+      </div>
+    </div>
 
-    <div>
-      <button type="button" class="js-play-button" aria-
-      label="Воспроизвести" title="Play"></button>
-      <button type="button" class="js-pause-button" aria-
-      label="Пауза" title="Pause" hidden></button>
-    </div>
-    <div class="time-display">
-      <span class="js-current-time"></span>
-      —
-      <span class="js-duration"></span>
-    </div>
 
-    <div class="js-progress">
-      <div class="js-progress-slider">Прогресс</div>
-    </div>
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>

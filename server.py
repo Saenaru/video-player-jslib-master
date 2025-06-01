@@ -5,10 +5,8 @@ def rebuild():
 
 server = Server()
 
-# Watch all relevant files for changes
 server.watch('index.html', rebuild)
 server.watch('player.js', rebuild)
 server.watch('styles.css', rebuild)
 
-# Serve the application from current directory
 server.serve(root='.', host='0.0.0.0', port=5500)

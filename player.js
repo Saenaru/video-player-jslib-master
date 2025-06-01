@@ -60,38 +60,40 @@ function createPlayer({
     });
   })();
 
-  (function activateVolumeButtons(){
-    const $volumeButton = $playerContainer.find('.js-volume-button');
-    const $muteButton = $playerContainer.find('.js-mute-button');
+(function activateVolumeButtons(){
+  const $volumeButton = $playerContainer.find('.js-volume-button');
+  const $muteButton = $playerContainer.find('.js-mute-button');
 
-    $volumeButton.click(()=>{
-      player.setVolume(100);
-    });
-    $muteButton.click(()=>{
-      player.setVolume(0);
-    });
+  $volumeButton.click(()=>{
+    player.setVolume(0);
+    $volumeButton.attr("hidden", true);
+    $muteButton.attr("hidden", false);
+  });
+  
+  $muteButton.click(()=>{
+    player.setVolume(100);
+    $muteButton.attr("hidden", true);
+    $volumeButton.attr("hidden", false);
+  });
 
-    function activateVolumeButton(){
+  if (player.getVolume() > 0) {
+    $volumeButton.attr("hidden", false);
+    $muteButton.attr("hidden", true);
+  } else {
+    $volumeButton.attr("hidden", true);
+    $muteButton.attr("hidden", false);
+  }
+
+  player.on(Playable.VIDEO_EVENTS.VOLUME_CHANGED, () => {
+    if (player.getVolume() > 0) {
       $volumeButton.attr("hidden", false);
       $muteButton.attr("hidden", true);
-    }
-
-    function activateMuteBtn(){
+    } else {
       $volumeButton.attr("hidden", true);
       $muteButton.attr("hidden", false);
     }
-
-    function toggleVolumeMuteBtns(){
-      if (player.getVolume() > 0){
-        activateMuteBtn();
-      } else {
-        activateVolumeButton();
-      }
-    }
-
-    player.on(Playable.VIDEO_EVENTS.VOLUME_CHANGED, toggleVolumeMuteBtns);
-    toggleVolumeMuteBtns();
-  })();
+  });
+})();
 
   const $fullscreenButton = $playerContainer.find('.js-fullscreen-button');
   $fullscreenButton.click(()=>{
